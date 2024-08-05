@@ -9,7 +9,6 @@ import com.google.gson.annotations.SerializedName
  *     desc  :
  * </pre>
  */
-
 data class NetWorkPokemonInfo(
     @SerializedName("name") val name: String,
     @SerializedName("height") val height: Int,

@@ -5,7 +5,6 @@ import android.os.StrictMode
 import android.os.StrictMode.ThreadPolicy
 import android.os.StrictMode.VmPolicy
 import androidx.startup.Initializer
-import com.hi.dhl.pokemon.AppHelper
 import com.hi.dhl.pokemon.BuildConfig
 import timber.log.Timber
 import timber.log.Timber.DebugTree
@@ -27,9 +26,9 @@ class AppInitializer : Initializer<Unit> {
         )
         StrictMode.setVmPolicy(VmPolicy.Builder().detectAll().penaltyLog().build())
         Timber.plant(DebugTree())
-        AppHelper.init(context)
-        return Unit
+        return
     }
 
-    override fun dependencies(): MutableList<Class<out Initializer<*>>> = mutableListOf()
+    override fun dependencies(): List<Class<out Initializer<*>>> =
+        listOf()
 }

@@ -1,6 +1,5 @@
 package com.hi.dhl.pokemon.ui.main
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
@@ -9,10 +8,11 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.hi.dhl.pokemon.data.repository.Repository
 import com.hi.dhl.pokemon.model.PokemonItemModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
-import kotlinx.coroutines.channels.ConflatedBroadcastChannel
 import kotlinx.coroutines.flow.*
+import javax.inject.Inject
 
 /**
  * <pre>
@@ -21,25 +21,17 @@ import kotlinx.coroutines.flow.*
  *     desc  :
  * </pre>
  */
-
+@HiltViewModel
 @FlowPreview
 @ExperimentalCoroutinesApi
-class MainViewModel @ViewModelInject constructor(
+class MainViewModel @Inject constructor(
     private val pokemonRepository: Repository
 ) : ViewModel() {
 
-    private val mChanncel = ConflatedBroadcastChannel<String>()
-
-    // 使用 StateFlow 替换 ConflatedBroadcastChannel
-    private val _stateFlow = MutableStateFlow<String>("") // 在 MainViewModel 内部使用
-    val stateFlow = _stateFlow // 在外部使用
-
-    // 通过 paging3 加载数据
-    fun postOfData(): LiveData<PagingData<PokemonItemModel>> =
-        pokemonRepository.fetchPokemonList().cachedIn(viewModelScope).asLiveData()
+    private val _mutableSharedFlowSearch = MutableSharedFlow<String>()//ConflatedBroadcastChannel<String>()
 
     // 使用 ConflatedBroadcastChannel 进行搜索
-    val searchResultForDb = mChanncel.asFlow()
+    val searchResultForDb = _mutableSharedFlowSearch//.asFlow()
         // 避免在单位时间内，快输入造成大量的请求
         .debounce(200)
         //  避免重复的搜索请求。假设正在搜索 dhl，用户删除了 l  然后输入 l。最后的结果还是 dhl。它就不会再执行搜索查询 dhl
@@ -51,6 +43,14 @@ class MainViewModel @ViewModelInject constructor(
         .catch { throwable ->
             //  异常捕获
         }.asLiveData()
+
+    // 使用 StateFlow 替换 ConflatedBroadcastChannel
+    private val _mutableStateFlow = MutableStateFlow<String>("") // 在 MainViewModel 内部使用
+    val stateFlow = _mutableStateFlow // 在外部使用
+
+    // 通过 paging3 加载数据
+    fun postOfData(): LiveData<PagingData<PokemonItemModel>> =
+        pokemonRepository.fetchPokemonList().cachedIn(viewModelScope).asLiveData()
 
     /**
      * 使用 MutableStateFlow 进行网络搜索
@@ -77,11 +77,10 @@ class MainViewModel @ViewModelInject constructor(
             .asLiveData()
 
     // 根据关键词搜索
-    fun queryParameterForDb(parameter: String) = mChanncel.offer(parameter)
+    fun queryParameterForDb(parameter: String) = _mutableSharedFlowSearch.tryEmit(parameter)
 
     // 根据关键词搜索
     fun queryParameterForNetWork(parameter: String) {
-        _stateFlow.value = parameter
+        _mutableStateFlow.value = parameter
     }
-
 }

@@ -1,2 +1,45 @@
 include ':app'
 rootProject.name = "PokemonGo"
+
+//ALibKit_Jetbrains
+include ':ALibKit_Jetbrains'
+project(':ALibKit_Jetbrains').projectDir = new File("D:\\WorkSpace\\GitHub\\ALibKit_Jetbrains")
+include ':ALibKit_Jetbrains:anko_common'
+//ALibKit_Google
+include ':ALibKit_Google'
+project(':ALibKit_Google').projectDir = new File("D:\\WorkSpace\\GitHub\\ALibKit_Google")
+include ':ALibKit_Google:dagger_hilt'
+include ':ALibKit_Google:gson'
+//ALibKit_Squareup
+include ':ALibKit_Squareup'
+project(':ALibKit_Squareup').projectDir = new File("D:\\WorkSpace\\GitHub\\ALibKit_Squareup")
+include ':ALibKit_Squareup:retrofit2'
+//ALibKit_Jetpack
+include ':ALibKit_Jetpack'
+project(':ALibKit_Jetpack').projectDir = new File("D:\\WorkSpace\\GitHub\\ALibKit_Jetpack")
+include ':ALibKit_Jetpack:room'
+include ':ALibKit_Jetpack:room_paging'
+include ':ALibKit_Jetpack:swiperefreshlayout'
+include ':ALibKit_Jetpack:paging3'
+include ':ALibKit_Jetpack:hilt_lifecycle_viewmodel'
+//SwiftKit
+include ':SwiftKit'
+project(':SwiftKit').projectDir = new File("D:\\WorkSpace\\GitHub\\SwiftKit")
+include ':SwiftKit:basick'
+include ':SwiftKit:xmlk'
+//ALogKit
+include ':ALogKit'
+project(':ALogKit').projectDir = new File("D:\\WorkSpace\\GitHub\\ALogKit")
+include ':ALogKit:logk_timber'
+//AImageKit
+include ':AImageKit'
+project(':AImageKit').projectDir = new File("D:\\WorkSpace\\GitHub\\AImageKit")
+include ':AImageKit:imagek_coil1'
+//AXmlKit
+include ':AXmlKit'
+project(':AXmlKit').projectDir = new File("D:\\WorkSpace\\GitHub\\AXmlKit")
+include ':AXmlKit:bark_app'
+//ASerialKit
+include ':ASerialKit'
+project(':ASerialKit').projectDir = new File("D:\\WorkSpace\\GitHub\\ASerialKit")
+include ':ASerialKit:serialk_gson'

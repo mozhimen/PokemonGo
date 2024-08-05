@@ -3,7 +3,7 @@ package com.hi.dhl.pokemon.data.entity
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.hi.dhl.pokemon.ext.getEmptyOrDefault
+import com.mozhimen.basick.utilk.kotlin.getEmptyOrDefault
 
 /**
  * <pre>
@@ -68,14 +68,14 @@ data class PokemonInfoEntity(
                 }
 
                 val dbSprites = Sprites(
-                    backDefault = sprites.backDefault.getEmptyOrDefault { "" },
-                    backFemale = sprites.backFemale.getEmptyOrDefault { "" },
-                    backShiny = sprites.backShiny.getEmptyOrDefault { "" },
-                    backShinyFemale = sprites.backShinyFemale.getEmptyOrDefault { "" },
-                    frontDefault = sprites.frontDefault.getEmptyOrDefault { "" },
-                    frontfemale = sprites.frontfemale.getEmptyOrDefault { "" },
-                    frontShiny = sprites.frontShiny.getEmptyOrDefault { "" },
-                    frontShinyFemale = sprites.frontShinyFemale.getEmptyOrDefault { "" }
+                    backDefault = sprites.backDefault.getEmptyOrDefault(),
+                    backFemale = sprites.backFemale.getEmptyOrDefault(),
+                    backShiny = sprites.backShiny.getEmptyOrDefault(),
+                    backShinyFemale = sprites.backShinyFemale.getEmptyOrDefault(),
+                    frontDefault = sprites.frontDefault.getEmptyOrDefault(),
+                    frontfemale = sprites.frontfemale.getEmptyOrDefault(),
+                    frontShiny = sprites.frontShiny.getEmptyOrDefault(),
+                    frontShinyFemale = sprites.frontShinyFemale.getEmptyOrDefault()
                 )
 
                 PokemonInfoEntity(

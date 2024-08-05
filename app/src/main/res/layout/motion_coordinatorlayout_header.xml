@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <com.hi.dhl.pokemon.utils.CollapsibleToolbar
+    <com.mozhimen.xmlk.bark.app.BarKAppMotion
         android:id="@+id/constraintToolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -12,7 +12,6 @@
         android:minHeight="70dp"
         app:layoutDescription="@xml/scene_header"
         app:layout_scrollFlags="scroll|enterAlways|snap|exitUntilCollapsed">
-
 
         <ImageView
             android:id="@+id/background"
@@ -103,5 +102,5 @@
         </LinearLayout>
 
 
-    </com.hi.dhl.pokemon.utils.CollapsibleToolbar>
+    </com.mozhimen.xmlk.bark.app.BarKAppMotion>
 </layout>

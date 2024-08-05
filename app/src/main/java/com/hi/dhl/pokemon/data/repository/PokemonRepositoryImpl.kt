@@ -1,8 +1,10 @@
 package com.hi.dhl.pokemon.data.repository
 
+import androidx.paging.ExperimentalPagingApi
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
+import androidx.paging.map
 import com.hi.dhl.pokemon.data.entity.PokemonEntity
 import com.hi.dhl.pokemon.data.entity.PokemonInfoEntity
 import com.hi.dhl.pokemon.data.local.AppDataBase
@@ -33,6 +35,7 @@ class PokemonRepositoryImpl(
     val mapper2InfoModel: Mapper<PokemonInfoEntity, PokemonInfoModel>
 ) : Repository {
 
+    @OptIn(ExperimentalPagingApi::class)
     override fun fetchPokemonList(): Flow<PagingData<PokemonItemModel>> {
         return Pager(
             config = pageConfig,

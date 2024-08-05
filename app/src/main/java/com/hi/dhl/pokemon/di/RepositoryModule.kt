@@ -7,7 +7,7 @@ import com.hi.dhl.pokemon.data.repository.Repository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 /**
@@ -18,7 +18,7 @@ import javax.inject.Singleton
  * </pre>
  */
 @Module
-@InstallIn(ApplicationComponent::class)
+@InstallIn(SingletonComponent::class)
 class RepositoryModule {
 
     @Singleton

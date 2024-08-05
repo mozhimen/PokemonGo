@@ -13,6 +13,7 @@ import com.hi.dhl.pokemon.model.PokemonInfoModel
 import com.hi.dhl.pokemon.model.PokemonItemModel
 import com.hi.dhl.pokemon.ui.detail.AlbumAdapter
 import com.hi.dhl.pokemon.ui.detail.DetailActivity
+import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import timber.log.Timber
 
 /**
@@ -25,6 +26,7 @@ import timber.log.Timber
 
 @BindingAdapter("bindingAvator")
 fun bindingAvator(imageView: ImageView, url: String) {
+    UtilKLogWrapper.v("TAG", "tag: $url")
     imageView.load(url) {
         crossfade(true)
         placeholder(R.mipmap.ic_launcher_round)

@@ -12,6 +12,7 @@ import com.hi.dhl.jdatabinding.DataBindingFragment
 import com.hi.dhl.pokemon.R
 import com.hi.dhl.pokemon.databinding.FragmentDetailsBinding
 import com.hi.dhl.pokemon.model.PokemonItemModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 
@@ -26,6 +27,7 @@ import kotlinx.coroutines.FlowPreview
 // 如果使用带参数的 Fragment 需要设置 FragmentFactory，告诉系统如何实例化 Fragment
 @FlowPreview
 @ExperimentalCoroutinesApi
+@AndroidEntryPoint
 class DetailsFragment(args: String) : DataBindingFragment(R.layout.fragment_details) {
 
     private val mBinding: FragmentDetailsBinding by binding()

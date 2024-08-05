@@ -5,12 +5,12 @@ import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
-import com.hi.dhl.pokemon.AppHelper
 import com.hi.dhl.pokemon.data.entity.PokemonEntity
 import com.hi.dhl.pokemon.data.entity.RemoteKeysEntity
 import com.hi.dhl.pokemon.data.local.AppDataBase
 import com.hi.dhl.pokemon.data.remote.PokemonService
-import com.hi.dhl.pokemon.ext.isConnectedNetwork
+import com.mozhimen.basick.lintk.optins.permission.OPermission_ACCESS_NETWORK_STATE
+import com.mozhimen.basick.utilk.wrapper.UtilKNet
 import retrofit2.HttpException
 import timber.log.Timber
 import java.io.IOException
@@ -28,6 +28,7 @@ class PokemonRemoteMediator(
     val db: AppDataBase
 ) : RemoteMediator<Int, PokemonEntity>() {
 
+    @OptIn(OPermission_ACCESS_NETWORK_STATE::class)
     override suspend fun load(
         loadType: LoadType,
         state: PagingState<Int, PokemonEntity>
@@ -93,7 +94,7 @@ class PokemonRemoteMediator(
                 }
             }
 
-            if (!AppHelper.mContext.isConnectedNetwork()) {
+            if (!UtilKNet.isConnectedOrConnecting_ofActive()) {
                 // 无网络加载本地数据
                 return MediatorResult.Success(endOfPaginationReached = true)
             }
