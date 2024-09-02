@@ -5,7 +5,7 @@ import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
-import com.hi.dhl.pokemon.databinding.ActivityMainBinding
+import com.hi.dhl.pokemon.databindings.ActivityMainBinding
 import com.hi.dhl.pokemon.ui.main.footer.FooterAdapter
 import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDBVM
 import dagger.hilt.android.AndroidEntryPoint

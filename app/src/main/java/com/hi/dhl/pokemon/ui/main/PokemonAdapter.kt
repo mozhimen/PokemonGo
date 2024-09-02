@@ -8,7 +8,7 @@ import androidx.paging.PagingDataAdapter
 import com.hi.dhl.jdatabinding.DataBindingViewHolder
 import com.hi.dhl.jdatabinding.dowithTry
 import com.hi.dhl.pokemon.R
-import com.hi.dhl.pokemon.databinding.RecycleItemPokemonBinding
+import com.hi.dhl.pokemon.databindings.RecycleItemPokemonBinding
 import com.hi.dhl.pokemon.model.PokemonItemModel
 
 /**

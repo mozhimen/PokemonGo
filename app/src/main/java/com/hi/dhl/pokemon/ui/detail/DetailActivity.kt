@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.hi.dhl.jdatabinding.binding
 import com.hi.dhl.pokemon.R
 import com.hi.dhl.pokemon.databinding.ActivityDetailsBinding
+import com.hi.dhl.pokemon.databindings.ActivityDetailsBinding
 import com.hi.dhl.pokemon.model.PokemonItemModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi

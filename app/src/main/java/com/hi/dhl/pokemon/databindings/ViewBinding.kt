@@ -1,4 +1,4 @@
-package com.hi.dhl.pokemon.ui.binding
+package com.hi.dhl.pokemon.databindings
 
 import android.app.Activity
 import android.view.View

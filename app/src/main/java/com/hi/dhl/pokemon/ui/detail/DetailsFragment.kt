@@ -10,7 +10,7 @@ import androidx.fragment.app.commit
 import androidx.lifecycle.Observer
 import com.hi.dhl.jdatabinding.DataBindingFragment
 import com.hi.dhl.pokemon.R
-import com.hi.dhl.pokemon.databinding.FragmentDetailsBinding
+import com.hi.dhl.pokemon.databindings.FragmentDetailsBinding
 import com.hi.dhl.pokemon.model.PokemonItemModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi

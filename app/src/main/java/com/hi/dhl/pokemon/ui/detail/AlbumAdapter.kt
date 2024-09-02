@@ -15,25 +15,24 @@ import com.hi.dhl.pokemon.model.PokemonInfoModel
  * </pre>
  */
 
-class AlbumAdapter :
-    DataBindingListAdapter<PokemonInfoModel.AlbumModel>(PokemonInfoModel.AlbumModel.diffCallback) {
-    override fun layout(position: Int): Int = R.layout.recycle_item_album
+class AlbumAdapter : DataBindingListAdapter<PokemonInfoModel.AlbumModel>(PokemonInfoModel.AlbumModel.diffCallback) {
+    override fun layout(position: Int): Int =
+        R.layout.recycle_item_album
 
-    override fun viewHolder(
-        layout: Int,
-        view: View
-    ): DataBindingViewHolder<PokemonInfoModel.AlbumModel> = AlbumViewHolder(view)
-}
+    override fun viewHolder(layout: Int, view: View): DataBindingViewHolder<PokemonInfoModel.AlbumModel> =
+        AlbumViewHolder(view)
 
-class AlbumViewHolder(view: View) : DataBindingViewHolder<PokemonInfoModel.AlbumModel>(view) {
+    ///////////////////////////////////////////////////////////////////
 
-    private val mBinding: RecycleItemAlbumBinding by viewHolderBinding(view)
+    class AlbumViewHolder(view: View) : DataBindingViewHolder<PokemonInfoModel.AlbumModel>(view) {
 
-    override fun bindData(data: PokemonInfoModel.AlbumModel, position: Int) {
-        mBinding.apply {
-            album = data
-            executePendingBindings()
+        private val mBinding: RecycleItemAlbumBinding by viewHolderBinding(view)
+
+        override fun bindData(data: PokemonInfoModel.AlbumModel, position: Int) {
+            mBinding.apply {
+                album = data
+                executePendingBindings()
+            }
         }
     }
-
 }

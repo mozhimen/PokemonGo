@@ -3,7 +3,7 @@ package com.hi.dhl.pokemon.ui.main.footer
 import android.view.View
 import androidx.paging.LoadState
 import com.hi.dhl.jdatabinding.DataBindingViewHolder
-import com.hi.dhl.pokemon.databinding.RecycieItemNetworkStateBinding
+import com.hi.dhl.pokemon.databindings.RecycieItemNetworkStateBinding
 
 /**
  * <pre>

@@ -2,6 +2,8 @@ package com.hi.dhl.pokemon.ui.detail
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
 
 /**
  * <pre>
@@ -10,8 +12,9 @@ import androidx.fragment.app.FragmentFactory
  *     desc  :
  * </pre>
  */
-class CustomFragmentFactory() : FragmentFactory() {
+class CustomFragmentFactory : FragmentFactory() {
 
+    @OptIn(FlowPreview::class, ExperimentalCoroutinesApi::class)
     override fun instantiate(classLoader: ClassLoader, className: String): Fragment =
         when (className) {
             DetailsFragment::class.java.name -> DetailsFragment(DetailsFragment::class.java.simpleName)
