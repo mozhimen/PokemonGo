@@ -49,30 +49,32 @@ android {
 
 dependencies {
     implementation project(':SwiftKit:basick')
-    implementation project(':ALibKit_Jetbrains:anko_common')
-    implementation project(':ALibKit_Google:dagger_hilt')
-    implementation project(':ALibKit_Jetpack:paging3')
-    implementation project(':ALibKit_Jetpack:room')
-    implementation project(':ALibKit_Jetpack:room_paging')
-    implementation project(':ALibKit_Jetpack:swiperefreshlayout')
-    implementation project(':ALibKit_Jetpack:paging3')
-    implementation project(':ALibKit_Squareup:retrofit2')
+    implementation project(':SwiftKit:xmlk')
     implementation project(':ALogKit:logk_timber')
     implementation project(':AImageKit:imagek_coil1')
     implementation project(':AXmlKit:bark_app')
     implementation project(':ASerialKit:serialk_gson')
 
-    //others
-    implementation "com.hi-dhl:jdatabinding:1.0.4"
-    implementation "com.hi-dhl:progressview:1.0.2"
+    //pages
+    implementation project(':APagingKit:pagingk_paging3_data')
+
+    //nets
+    implementation project(':ANetKit:netk_retrofit2')
+    implementation project(':ALibKit_Squareup:retrofit2_converter_gson')
 
     //dbs
     implementation project(':ALibKit_Jetpack:room')
+    implementation project(':ALibKit_Jetpack:room_paging')
     kapt 'androidx.room:room-compiler:2.6.1'
 
     //dis
+    implementation project(':ALibKit_Google:dagger_hilt')
     implementation 'com.google.dagger:hilt-android:2.50'
     kapt 'com.google.dagger:hilt-compiler:2.50'
+
+    //others
+    implementation "com.hi-dhl:jdatabinding:1.0.4"
+    implementation "com.hi-dhl:progressview:1.0.2"
 
     //test
     testImplementation 'junit:junit:4.13.2'

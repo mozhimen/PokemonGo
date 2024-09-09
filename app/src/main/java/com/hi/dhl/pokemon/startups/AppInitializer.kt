@@ -1,4 +1,4 @@
-package com.hi.dhl.pokemon.init
+package com.hi.dhl.pokemon.startups
 
 import android.content.Context
 import android.os.StrictMode

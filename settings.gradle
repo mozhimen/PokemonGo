@@ -1,10 +1,6 @@
 include ':app'
 rootProject.name = "PokemonGo"
 
-//ALibKit_Jetbrains
-include ':ALibKit_Jetbrains'
-project(':ALibKit_Jetbrains').projectDir = new File("D:\\WorkSpace\\GitHub\\ALibKit_Jetbrains")
-include ':ALibKit_Jetbrains:anko_common'
 //ALibKit_Google
 include ':ALibKit_Google'
 project(':ALibKit_Google').projectDir = new File("D:\\WorkSpace\\GitHub\\ALibKit_Google")
@@ -14,6 +10,10 @@ include ':ALibKit_Google:gson'
 include ':ALibKit_Squareup'
 project(':ALibKit_Squareup').projectDir = new File("D:\\WorkSpace\\GitHub\\ALibKit_Squareup")
 include ':ALibKit_Squareup:retrofit2'
+include ':ALibKit_Squareup:retrofit2_converter_gson'
+include ':ALibKit_Squareup:okhttp3'
+include ':ALibKit_Squareup:moshi'
+include ':ALibKit_Squareup:okhttp3_logging_interceptor'
 //ALibKit_Jetpack
 include ':ALibKit_Jetpack'
 project(':ALibKit_Jetpack').projectDir = new File("D:\\WorkSpace\\GitHub\\ALibKit_Jetpack")
@@ -27,6 +27,7 @@ include ':SwiftKit'
 project(':SwiftKit').projectDir = new File("D:\\WorkSpace\\GitHub\\SwiftKit")
 include ':SwiftKit:basick'
 include ':SwiftKit:xmlk'
+include ':SwiftKit:mvvmk'
 //ALogKit
 include ':ALogKit'
 project(':ALogKit').projectDir = new File("D:\\WorkSpace\\GitHub\\ALogKit")
@@ -39,7 +40,22 @@ include ':AImageKit:imagek_coil1'
 include ':AXmlKit'
 project(':AXmlKit').projectDir = new File("D:\\WorkSpace\\GitHub\\AXmlKit")
 include ':AXmlKit:bark_app'
+include ':AXmlKit:vhk'
 //ASerialKit
 include ':ASerialKit'
 project(':ASerialKit').projectDir = new File("D:\\WorkSpace\\GitHub\\ASerialKit")
 include ':ASerialKit:serialk_gson'
+include ':ASerialKit:serialk_moshi'
+//KUtilKit
+include ':KUtilKit'
+project(':KUtilKit').projectDir = new File("D:\\WorkSpace\\GitHub\\KUtilKit")
+include ':KUtilKit:utilk_android'
+include ':KUtilKit:utilk_kotlin'
+//APagingKit
+include ':APagingKit'
+project(':APagingKit').projectDir = new File("D:\\WorkSpace\\GitHub\\APagingKit")
+include ':APagingKit:pagingk_paging3_data'
+//ANetKit
+include ':ANetKit'
+project(':ANetKit').projectDir = new File("D:\\WorkSpace\\GitHub\\ANetKit")
+include ':ANetKit:netk_retrofit2'

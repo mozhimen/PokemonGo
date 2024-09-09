@@ -35,7 +35,7 @@
             tools:node="merge">
 
             <meta-data
-                android:name="com.hi.dhl.pokemon.init.AppInitializer"
+                android:name="com.hi.dhl.pokemon.startups.AppInitializer"
                 android:value="androidx.startup" />
         </provider>
     </application>

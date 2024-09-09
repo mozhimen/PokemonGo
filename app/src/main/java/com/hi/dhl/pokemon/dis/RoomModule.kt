@@ -1,4 +1,4 @@
-package com.hi.dhl.pokemon.di
+package com.hi.dhl.pokemon.dis
 
 import android.app.Application
 import androidx.room.Room

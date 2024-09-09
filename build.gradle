@@ -1,7 +1,6 @@
 apply from: './checkVersions.gradle'
 
 buildscript {
-    ext.kotlin_version = "1.9.22"
     repositories {
         maven { url "https://maven.aliyun.com/repository/public" }
         maven { url 'https://maven.aliyun.com/repository/google' }
@@ -11,7 +10,7 @@ buildscript {
     }
     dependencies {
         classpath "com.android.tools.build:gradle:8.2.2"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.22"
         classpath "com.github.ben-manes:gradle-versions-plugin:0.36.0"
         classpath 'com.google.dagger:hilt-android-gradle-plugin:2.50'
     }

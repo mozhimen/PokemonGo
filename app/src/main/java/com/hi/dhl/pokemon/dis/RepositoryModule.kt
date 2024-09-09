@@ -1,4 +1,4 @@
-package com.hi.dhl.pokemon.di
+package com.hi.dhl.pokemon.dis
 
 import com.hi.dhl.pokemon.data.PokemonFactory
 import com.hi.dhl.pokemon.data.local.AppDataBase
@@ -19,15 +19,10 @@ import javax.inject.Singleton
  */
 @Module
 @InstallIn(SingletonComponent::class)
-class RepositoryModule {
+object RepositoryModule {
 
     @Singleton
     @Provides
-    fun provideTasksRepository(
-        api: PokemonService,
-        db: AppDataBase
-    ): Repository {
-        return PokemonFactory.makePokemonRepository(api, db)
-    }
-
+    fun provideTasksRepository(api: PokemonService, db: AppDataBase): Repository =
+        PokemonFactory.makePokemonRepository(api, db)
 }
