@@ -5,7 +5,7 @@ import androidx.lifecycle.*
 import com.hi.dhl.pokemon.data.remote.doFailure
 import com.hi.dhl.pokemon.data.remote.doSuccess
 import com.hi.dhl.pokemon.data.repository.Repository
-import com.hi.dhl.pokemon.model.PokemonInfoModel
+import com.hi.dhl.pokemon.mos.PokemonInfoModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview

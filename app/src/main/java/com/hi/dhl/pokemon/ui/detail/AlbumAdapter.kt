@@ -5,7 +5,7 @@ import com.hi.dhl.jdatabinding.DataBindingListAdapter
 import com.hi.dhl.jdatabinding.DataBindingViewHolder
 import com.hi.dhl.pokemon.R
 import com.hi.dhl.pokemon.databinding.RecycleItemAlbumBinding
-import com.hi.dhl.pokemon.model.PokemonInfoModel
+import com.hi.dhl.pokemon.mos.PokemonInfoModel
 
 /**
  * <pre>

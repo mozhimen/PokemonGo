@@ -2,8 +2,8 @@ package com.hi.dhl.pokemon.data.repository
 
 import androidx.paging.PagingData
 import com.hi.dhl.pokemon.data.remote.PokemonResult
-import com.hi.dhl.pokemon.model.PokemonInfoModel
-import com.hi.dhl.pokemon.model.PokemonItemModel
+import com.hi.dhl.pokemon.mos.PokemonInfoModel
+import com.hi.dhl.pokemon.mos.PokemonItemModel
 import kotlinx.coroutines.flow.Flow
 
 /**

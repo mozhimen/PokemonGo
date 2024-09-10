@@ -1,4 +1,4 @@
-package com.hi.dhl.pokemon.model
+package com.hi.dhl.pokemon.mos
 
 import androidx.recyclerview.widget.DiffUtil
 import kotlin.random.Random

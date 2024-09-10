@@ -11,8 +11,8 @@ import com.hi.dhl.pokemon.data.local.AppDataBase
 import com.hi.dhl.pokemon.data.mapper.Mapper
 import com.hi.dhl.pokemon.data.remote.PokemonResult
 import com.hi.dhl.pokemon.data.remote.PokemonService
-import com.hi.dhl.pokemon.model.PokemonInfoModel
-import com.hi.dhl.pokemon.model.PokemonItemModel
+import com.hi.dhl.pokemon.mos.PokemonInfoModel
+import com.hi.dhl.pokemon.mos.PokemonItemModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

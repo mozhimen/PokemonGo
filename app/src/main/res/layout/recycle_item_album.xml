@@ -7,7 +7,7 @@
 
         <variable
             name="album"
-            type="com.hi.dhl.pokemon.model.PokemonInfoModel.AlbumModel" />
+            type="com.hi.dhl.pokemon.mos.PokemonInfoModel" />
 
     </data>
 

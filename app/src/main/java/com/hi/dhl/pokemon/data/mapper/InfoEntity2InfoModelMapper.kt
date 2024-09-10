@@ -1,7 +1,7 @@
 package com.hi.dhl.pokemon.data.mapper
 
 import com.hi.dhl.pokemon.data.entity.PokemonInfoEntity
-import com.hi.dhl.pokemon.model.PokemonInfoModel
+import com.hi.dhl.pokemon.mos.PokemonInfoModel
 
 /**
  * <pre>

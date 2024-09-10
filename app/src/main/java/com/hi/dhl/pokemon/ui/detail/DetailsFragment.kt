@@ -11,7 +11,7 @@ import androidx.lifecycle.Observer
 import com.hi.dhl.jdatabinding.DataBindingFragment
 import com.hi.dhl.pokemon.R
 import com.hi.dhl.pokemon.databindings.FragmentDetailsBinding
-import com.hi.dhl.pokemon.model.PokemonItemModel
+import com.hi.dhl.pokemon.mos.PokemonItemModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview

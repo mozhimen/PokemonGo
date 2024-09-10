@@ -6,7 +6,7 @@
 
         <variable
             name="pokemonListModel"
-            type="com.hi.dhl.pokemon.model.PokemonItemModel" />
+            type="com.hi.dhl.pokemon.mos.PokemonItemModel" />
 
         <variable
             name="viewModel"

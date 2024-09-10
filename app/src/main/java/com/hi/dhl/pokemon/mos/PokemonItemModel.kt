@@ -1,4 +1,4 @@
-package com.hi.dhl.pokemon.model
+package com.hi.dhl.pokemon.mos
 
 import android.os.Parcelable
 import androidx.recyclerview.widget.DiffUtil
