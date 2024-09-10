@@ -1,9 +1,9 @@
 package com.hi.dhl.pokemon.dis
 
-import com.hi.dhl.pokemon.data.PokemonFactory
-import com.hi.dhl.pokemon.data.local.AppDataBase
-import com.hi.dhl.pokemon.data.remote.PokemonService
-import com.hi.dhl.pokemon.data.repository.Repository
+import com.hi.dhl.pokemon.repos.PokemonFactory
+import com.hi.dhl.pokemon.dbs.AppDataBase
+import com.hi.dhl.pokemon.restfs.PokemonService
+import com.hi.dhl.pokemon.repos.commons.Repository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

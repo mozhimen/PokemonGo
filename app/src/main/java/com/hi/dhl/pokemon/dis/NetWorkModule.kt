@@ -1,6 +1,6 @@
 package com.hi.dhl.pokemon.dis
 
-import com.hi.dhl.pokemon.data.remote.PokemonService
+import com.hi.dhl.pokemon.restfs.PokemonService
 import com.mozhimen.netk.retrofit2.NetKRetrofit
 import dagger.Module
 import dagger.Provides

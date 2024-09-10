@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.main.MainActivity"
+            android:name=".uis.main.MainActivity"
             android:screenOrientation="portrait" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +24,7 @@
         </activity>
 
         <activity
-            android:name=".ui.detail.DetailActivity"
+            android:name=".uis.detail.DetailActivity"
             android:screenOrientation="portrait"
             android:theme="@style/ActivityTheme" android:exported="true"/>
 

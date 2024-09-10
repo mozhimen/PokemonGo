@@ -2,10 +2,10 @@ package com.hi.dhl.pokemon.dis
 
 import android.app.Application
 import androidx.room.Room
-import com.hi.dhl.pokemon.data.local.AppDataBase
-import com.hi.dhl.pokemon.data.local.PokemonDao
-import com.hi.dhl.pokemon.data.local.PokemonInfoDao
-import com.hi.dhl.pokemon.data.local.RemoteKeysDao
+import com.hi.dhl.pokemon.dbs.AppDataBase
+import com.hi.dhl.pokemon.dbs.daos.PokemonDao
+import com.hi.dhl.pokemon.dbs.daos.PokemonInfoDao
+import com.hi.dhl.pokemon.dbs.daos.RemoteKeysDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

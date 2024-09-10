@@ -10,11 +10,11 @@
 
         <variable
             name="viewModel"
-            type="com.hi.dhl.pokemon.ui.detail.DetailViewModel" />
+            type="com.hi.dhl.pokemon.uis.detail.DetailViewModel" />
 
         <variable
             name="albumAdapter"
-            type="com.hi.dhl.pokemon.ui.detail.AlbumAdapter" />
+            type="com.hi.dhl.pokemon.uis.detail.AlbumAdapter" />
     </data>
 
     <androidx.fragment.app.FragmentContainerView

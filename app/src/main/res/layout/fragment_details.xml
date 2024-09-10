@@ -12,11 +12,11 @@
 
         <variable
             name="viewModel"
-            type="com.hi.dhl.pokemon.ui.detail.DetailViewModel" />
+            type="com.hi.dhl.pokemon.uis.detail.DetailViewModel" />
 
         <variable
             name="albumAdapter"
-            type="com.hi.dhl.pokemon.ui.detail.AlbumAdapter" />
+            type="com.hi.dhl.pokemon.uis.detail.AlbumAdapter" />
     </data>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/color_light_teal"
-            tools:context=".ui.main.MainActivity">
+            tools:context=".uis.main.MainActivity">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
