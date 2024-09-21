@@ -145,6 +145,4 @@ class PokemonRemoteMediator(
         private val TAG = "PokemonRemoteMediator"
         private val remotePokemon = "pokemon"
     }
-
-
 }

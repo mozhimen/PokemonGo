@@ -12,7 +12,7 @@ import androidx.room.PrimaryKey
  */
 
 @Entity
-data class RemoteKeysEntity(
+data class RemoteKeysEntity constructor(
     @PrimaryKey
     val remoteName: String,
     val nextKey: Int?

@@ -55,6 +55,7 @@ include ':KUtilKit:utilk_kotlin'
 include ':APagingKit'
 project(':APagingKit').projectDir = new File("D:\\WorkSpace\\GitHub\\APagingKit")
 include ':APagingKit:pagingk_paging3_data'
+include ':APagingKit:basic'
 //ANetKit
 include ':ANetKit'
 project(':ANetKit').projectDir = new File("D:\\WorkSpace\\GitHub\\ANetKit")
