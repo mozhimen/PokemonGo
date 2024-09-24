@@ -9,9 +9,9 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import coil.load
 import com.hi.dhl.jprogressview.JProgressView
 import com.hi.dhl.pokemon.R
-import com.hi.dhl.pokemon.mos.PokemonInfoModel
-import com.hi.dhl.pokemon.mos.PokemonItemModel
-import com.hi.dhl.pokemon.uis.detail.AlbumAdapter
+import com.hi.dhl.pokemon.widgets.paging.mos.PokemonInfoModel
+import com.hi.dhl.pokemon.widgets.paging.mos.PokemonItemModel
+import com.hi.dhl.pokemon.widgets.paging.AlbumAdapter
 import com.hi.dhl.pokemon.uis.detail.DetailActivity
 import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import timber.log.Timber
@@ -68,10 +68,7 @@ fun bindingFinish(view: View, finish: Boolean) {
 @BindingAdapter("bindClick")
 fun bindingClick(view: View, model: PokemonItemModel) {
     view.setOnClickListener {
-        DetailActivity.jumpAcrtivity(
-            view.context,
-            model
-        )
+        DetailActivity.startActivity_ofDetail(view.context, model)
     }
 }
 

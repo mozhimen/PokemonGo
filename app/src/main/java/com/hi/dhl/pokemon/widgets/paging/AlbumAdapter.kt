@@ -1,11 +1,11 @@
-package com.hi.dhl.pokemon.uis.detail
+package com.hi.dhl.pokemon.widgets.paging
 
 import android.view.View
 import com.hi.dhl.jdatabinding.DataBindingListAdapter
 import com.hi.dhl.jdatabinding.DataBindingViewHolder
 import com.hi.dhl.pokemon.R
 import com.hi.dhl.pokemon.databinding.RecycleItemAlbumBinding
-import com.hi.dhl.pokemon.mos.PokemonInfoModel
+import com.hi.dhl.pokemon.widgets.paging.mos.PokemonInfoModel
 
 /**
  * <pre>
@@ -15,7 +15,7 @@ import com.hi.dhl.pokemon.mos.PokemonInfoModel
  * </pre>
  */
 
-class AlbumAdapter : DataBindingListAdapter<PokemonInfoModel.AlbumModel>(PokemonInfoModel.AlbumModel.diffCallback) {
+class AlbumAdapter : DataBindingListAdapter<PokemonInfoModel.AlbumModel>(DiffUtil_ItemCallback_AlbumModel()) {
     override fun layout(position: Int): Int =
         R.layout.recycle_item_album
 

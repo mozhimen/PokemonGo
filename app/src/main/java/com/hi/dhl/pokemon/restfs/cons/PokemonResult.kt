@@ -1,4 +1,4 @@
-package com.hi.dhl.pokemon.restfs.mos
+package com.hi.dhl.pokemon.restfs.cons
 
 /**
  * <pre>

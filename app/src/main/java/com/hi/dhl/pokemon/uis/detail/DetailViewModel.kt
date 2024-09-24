@@ -2,10 +2,10 @@ package com.hi.dhl.pokemon.uis.detail
 
 import androidx.databinding.ObservableBoolean
 import androidx.lifecycle.*
-import com.hi.dhl.pokemon.restfs.mos.doFailure
-import com.hi.dhl.pokemon.restfs.mos.doSuccess
+import com.hi.dhl.pokemon.restfs.cons.doFailure
+import com.hi.dhl.pokemon.restfs.cons.doSuccess
 import com.hi.dhl.pokemon.repos.commons.Repository
-import com.hi.dhl.pokemon.mos.PokemonInfoModel
+import com.hi.dhl.pokemon.widgets.paging.mos.PokemonInfoModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
@@ -114,10 +114,4 @@ class DetailViewModel @Inject constructor(
                 }
             }
     }
-
-
-    companion object {
-        private val TAG = "DetailViewModel"
-    }
-
 }

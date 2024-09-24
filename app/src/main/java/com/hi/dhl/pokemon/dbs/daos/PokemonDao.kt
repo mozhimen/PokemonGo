@@ -16,16 +16,15 @@ import com.hi.dhl.pokemon.dbs.mos.PokemonEntity
  */
 @Dao
 interface PokemonDao {
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertPokemon(pokemonList: List<PokemonEntity>)
+    @Query("SELECT * FROM PokemonEntity where name LIKE '%' || :parameter || '%'")
+    fun get_ofPagingSource_nameLike(parameter: String): PagingSource<Int, PokemonEntity>
 
     @Query("SELECT * FROM PokemonEntity")
-    fun getPokemon(): PagingSource<Int, PokemonEntity>
+    fun get_ofPagingSource(): PagingSource<Int, PokemonEntity>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(pokemonList: List<PokemonEntity>)
 
     @Query("DELETE FROM PokemonEntity where remoteName = :name")
-    suspend fun clearPokemon(name: String)
-
-    @Query("SELECT * FROM PokemonEntity where name LIKE '%' || :parameter || '%'")
-    fun pokemonInfoByParameter(parameter: String): PagingSource<Int, PokemonEntity>
+    suspend fun delete(name: String)
 }

@@ -10,8 +10,9 @@ import androidx.fragment.app.commit
 import androidx.lifecycle.Observer
 import com.hi.dhl.jdatabinding.DataBindingFragment
 import com.hi.dhl.pokemon.R
-import com.hi.dhl.pokemon.databindings.FragmentDetailsBinding
-import com.hi.dhl.pokemon.mos.PokemonItemModel
+import com.hi.dhl.pokemon.databinding.FragmentDetailsBinding
+import com.hi.dhl.pokemon.widgets.paging.mos.PokemonItemModel
+import com.hi.dhl.pokemon.widgets.paging.AlbumAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
@@ -28,7 +29,7 @@ import kotlinx.coroutines.FlowPreview
 @FlowPreview
 @ExperimentalCoroutinesApi
 @AndroidEntryPoint
-class DetailsFragment(args: String) : DataBindingFragment(R.layout.fragment_details) {
+class DetailFragment(args: String) : DataBindingFragment(R.layout.fragment_details) {
 
     private val mBinding: FragmentDetailsBinding by binding()
     private val mViewModel: DetailViewModel by activityViewModels()
@@ -49,7 +50,7 @@ class DetailsFragment(args: String) : DataBindingFragment(R.layout.fragment_deta
                 fectchPokemonInfo2(mPokemonModel.name)
                     .observe(viewLifecycleOwner, Observer {})
             }
-            lifecycleOwner = this@DetailsFragment
+            lifecycleOwner = this@DetailFragment
         }
 
         mViewModel.failure.observe(viewLifecycleOwner, Observer {
@@ -91,7 +92,7 @@ class DetailsFragment(args: String) : DataBindingFragment(R.layout.fragment_deta
 
             manager.commit {
                 val bundle = bundleOf(KEY_LIST_MODEL to params)
-                replace(fragmentContainerId, DetailsFragment::class.java, bundle)
+                replace(fragmentContainerId, DetailFragment::class.java, bundle)
             }
         }
     }

@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.hi.dhl.pokemon.repos.commons.Repository
-import com.hi.dhl.pokemon.mos.PokemonItemModel
+import com.hi.dhl.pokemon.widgets.paging.mos.PokemonItemModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview

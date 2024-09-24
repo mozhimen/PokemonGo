@@ -1,11 +1,10 @@
-package com.hi.dhl.pokemon.startups
+package com.hi.dhl.pokemon
 
 import android.content.Context
 import android.os.StrictMode
 import android.os.StrictMode.ThreadPolicy
 import android.os.StrictMode.VmPolicy
 import androidx.startup.Initializer
-import com.hi.dhl.pokemon.BuildConfig
 import timber.log.Timber
 import timber.log.Timber.DebugTree
 
@@ -16,7 +15,7 @@ import timber.log.Timber.DebugTree
  *     desc  :
  * </pre>
  */
-class AppInitializer : Initializer<Unit> {
+class PokemonGo_Initializer : Initializer<Unit> {
     override fun create(context: Context) {
         if (!BuildConfig.DEBUG) {
             return

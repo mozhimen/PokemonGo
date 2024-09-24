@@ -8,7 +8,7 @@
 
         <variable
             name="pokemonListModel"
-            type="com.hi.dhl.pokemon.mos.PokemonItemModel" />
+            type="com.hi.dhl.pokemon.widgets.paging.mos.PokemonItemModel" />
 
         <variable
             name="viewModel"
@@ -16,7 +16,7 @@
 
         <variable
             name="albumAdapter"
-            type="com.hi.dhl.pokemon.uis.detail.AlbumAdapter" />
+            type="com.hi.dhl.pokemon.widgets.paging.AlbumAdapter" />
     </data>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout

@@ -19,7 +19,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object NetWorkModule {
+object ModuleRemote {
 
 //    /**
 //     * @Provides 常用于被 @Module 注解标记类的内部的方法，并提供依赖项对象。
@@ -45,14 +45,10 @@ object NetWorkModule {
     @Provides
     @Singleton
     fun providerNetKRetrofit(): NetKRetrofit =
-        NetKRetrofit(
-            "https://pokeapi.co/api/v2/",
-            _converterFactory = GsonConverterFactory.create()
-        )
+        NetKRetrofit("https://pokeapi.co/api/v2/", _converterFactory = GsonConverterFactory.create())
 
     @Provides
     @Singleton
-    fun providePokemonService(netKRetrofit: NetKRetrofit): PokemonService {
-        return netKRetrofit.create(PokemonService::class.java)
-    }
+    fun providePokemonService(netKRetrofit: NetKRetrofit): PokemonService =
+         netKRetrofit.create(PokemonService::class.java)
 }

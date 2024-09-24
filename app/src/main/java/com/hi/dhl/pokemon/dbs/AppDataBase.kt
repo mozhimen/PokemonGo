@@ -1,6 +1,8 @@
 package com.hi.dhl.pokemon.dbs
 
+import android.content.Context
 import androidx.room.Database
+import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.hi.dhl.pokemon.dbs.helpers.LocalTypeConverter
@@ -20,13 +22,21 @@ import com.hi.dhl.pokemon.dbs.mos.RemoteKeysEntity
  */
 
 @Database(
-    entities = arrayOf(PokemonEntity::class, RemoteKeysEntity::class, PokemonInfoEntity::class),
+    entities = [PokemonEntity::class, RemoteKeysEntity::class, PokemonInfoEntity::class],
     version = 2, exportSchema = false
 )
-@TypeConverters(value = arrayOf(LocalTypeConverter::class))
+@TypeConverters(value = [LocalTypeConverter::class])
 abstract class AppDataBase : RoomDatabase() {
-
     abstract fun pokemonDao(): PokemonDao
     abstract fun remoteKeysDao(): RemoteKeysDao
     abstract fun pokemonInfoDao(): PokemonInfoDao
+
+    companion object {
+        @JvmStatic
+        fun getAppDataBase(appContext: Context):AppDataBase = Room
+            .databaseBuilder(appContext, AppDataBase::class.java, "dhl.db")
+            .fallbackToDestructiveMigration()
+            .allowMainThreadQueries()
+            .build()
+    }
 }

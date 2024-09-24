@@ -2,7 +2,7 @@ package com.hi.dhl.pokemon.repos.impls
 
 import com.hi.dhl.pokemon.repos.commons.Mapper
 import com.hi.dhl.pokemon.dbs.mos.PokemonInfoEntity
-import com.hi.dhl.pokemon.mos.PokemonInfoModel
+import com.hi.dhl.pokemon.widgets.paging.mos.PokemonInfoModel
 
 /**
  * <pre>

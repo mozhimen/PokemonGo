@@ -1,4 +1,4 @@
-package com.hi.dhl.pokemon.dbs.mos
+package com.hi.dhl.pokemon.restfs.mos
 
 /**
  * <pre>
@@ -8,14 +8,14 @@ package com.hi.dhl.pokemon.dbs.mos
  * </pre>
  */
 
-data class ListingResponse(
+data class ListingRes(
     val count: Int,
     val next: String?,
     val previous: String?,
-    val results: List<ListingData>
+    val results: List<ListingDataRes>
 )
 
-data class ListingData(
+data class ListingDataRes(
     val name: String,
     val url: String
 ) {

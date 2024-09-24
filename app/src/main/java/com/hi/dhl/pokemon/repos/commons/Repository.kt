@@ -1,9 +1,9 @@
 package com.hi.dhl.pokemon.repos.commons
 
 import androidx.paging.PagingData
-import com.hi.dhl.pokemon.restfs.mos.PokemonResult
-import com.hi.dhl.pokemon.mos.PokemonInfoModel
-import com.hi.dhl.pokemon.mos.PokemonItemModel
+import com.hi.dhl.pokemon.restfs.cons.PokemonResult
+import com.hi.dhl.pokemon.widgets.paging.mos.PokemonInfoModel
+import com.hi.dhl.pokemon.widgets.paging.mos.PokemonItemModel
 import kotlinx.coroutines.flow.Flow
 
 /**

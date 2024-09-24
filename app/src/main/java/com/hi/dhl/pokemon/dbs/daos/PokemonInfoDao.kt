@@ -17,11 +17,11 @@ import com.hi.dhl.pokemon.dbs.mos.PokemonInfoEntity
 @Dao
 interface PokemonInfoDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertPokemon(pokemonInfoEntity: PokemonInfoEntity)
+    suspend fun insert(pokemonInfoEntity: PokemonInfoEntity)
 
     @Query("SELECT * FROM PokemonInfoEntity where name = :name")
-    suspend fun getPokemon(name: String): PokemonInfoEntity?
+    suspend fun get_ofName(name: String): PokemonInfoEntity?
 
     @Query("DELETE FROM PokemonInfoEntity where id = :id")
-    suspend fun clearPokemonInfo(id: Int)
+    suspend fun delete(id: Int)
 }

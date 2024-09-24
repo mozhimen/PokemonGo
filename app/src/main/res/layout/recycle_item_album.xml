@@ -7,7 +7,7 @@
 
         <variable
             name="album"
-            type="com.hi.dhl.pokemon.mos.PokemonInfoModel" />
+            type="com.hi.dhl.pokemon.widgets.paging.mos.PokemonInfoModel.AlbumModel" />
 
     </data>
 

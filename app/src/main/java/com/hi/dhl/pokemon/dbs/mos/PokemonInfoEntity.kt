@@ -3,7 +3,6 @@ package com.hi.dhl.pokemon.dbs.mos
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.mozhimen.basick.utilk.kotlin.getEmptyOrDefault
 
 /**
  * <pre>
@@ -40,55 +39,5 @@ data class PokemonInfoEntity(
     data class Type(val name: String, val url: String)
 
     data class Stats(val baseStat: Int, val name: String, val url: String)
-
-    companion object {
-        fun convert2PokemonInfoEntity(netWorkPokemonInfo: NetWorkPokemonInfo): PokemonInfoEntity {
-            return netWorkPokemonInfo.run {
-
-                val dbTypes = mutableListOf<Type>()
-                val dbStats = mutableListOf<Stats>()
-
-                types.forEach {
-                    dbTypes.add(
-                        Type(
-                            name = it.type.name,
-                            url = it.type.url
-                        )
-                    )
-                }
-
-                stats.forEach {
-                    dbStats.add(
-                        Stats(
-                            baseStat = it.baseStat,
-                            name = it.stat.name,
-                            url = it.stat.url
-                        )
-                    )
-                }
-
-                val dbSprites = Sprites(
-                    backDefault = sprites.backDefault.getEmptyOrDefault(),
-                    backFemale = sprites.backFemale.getEmptyOrDefault(),
-                    backShiny = sprites.backShiny.getEmptyOrDefault(),
-                    backShinyFemale = sprites.backShinyFemale.getEmptyOrDefault(),
-                    frontDefault = sprites.frontDefault.getEmptyOrDefault(),
-                    frontfemale = sprites.frontfemale.getEmptyOrDefault(),
-                    frontShiny = sprites.frontShiny.getEmptyOrDefault(),
-                    frontShinyFemale = sprites.frontShinyFemale.getEmptyOrDefault()
-                )
-
-                PokemonInfoEntity(
-                    name = name,
-                    height = height,
-                    weight = weight,
-                    experience = experience,
-                    types = dbTypes,
-                    stats = dbStats,
-                    sprites = dbSprites
-                )
-            }
-        }
-    }
 }
 

@@ -1,7 +1,7 @@
 package com.hi.dhl.pokemon.dis
 
 import android.app.Application
-import androidx.room.Room
+import android.content.Context
 import com.hi.dhl.pokemon.dbs.AppDataBase
 import com.hi.dhl.pokemon.dbs.daos.PokemonDao
 import com.hi.dhl.pokemon.dbs.daos.PokemonInfoDao
@@ -9,6 +9,7 @@ import com.hi.dhl.pokemon.dbs.daos.RemoteKeysDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
@@ -22,7 +23,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 // 这里使用了 ApplicationComponent，因此 NetworkModule 绑定到 Application 的生命周期。
-object RoomModule {
+object ModuleLocale {
 
     /**
      * @Provides 常用于被 @Module 注解标记类的内部的方法，并提供依赖项对象。
@@ -30,29 +31,21 @@ object RoomModule {
      */
     @Provides
     @Singleton
-    fun provideAppDataBase(application: Application): AppDataBase {
-        return Room
-            .databaseBuilder(application, AppDataBase::class.java, "dhl.db")
-            .fallbackToDestructiveMigration()
-            .allowMainThreadQueries()
-            .build()
-    }
+    fun provideAppDataBase(@ApplicationContext context: Context): AppDataBase =
+        AppDataBase.getAppDataBase(context)
 
     @Provides
     @Singleton
-    fun providerPokemonDao(appDataBase: AppDataBase): PokemonDao {
-        return appDataBase.pokemonDao()
-    }
+    fun providerPokemonDao(appDataBase: AppDataBase): PokemonDao =
+        appDataBase.pokemonDao()
 
     @Provides
     @Singleton
-    fun providerPokemonInfoDao(appDataBase: AppDataBase): PokemonInfoDao {
-        return appDataBase.pokemonInfoDao()
-    }
+    fun providerPokemonInfoDao(appDataBase: AppDataBase): PokemonInfoDao =
+        appDataBase.pokemonInfoDao()
 
     @Provides
     @Singleton
-    fun providerRemoteKeysDao(appDataBase: AppDataBase): RemoteKeysDao {
-        return appDataBase.remoteKeysDao()
-    }
+    fun providerRemoteKeysDao(appDataBase: AppDataBase): RemoteKeysDao =
+        appDataBase.remoteKeysDao()
 }

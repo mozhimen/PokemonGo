@@ -5,9 +5,10 @@ import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
-import com.hi.dhl.pokemon.databindings.ActivityMainBinding
-import com.hi.dhl.pokemon.uis.main.footer.FooterAdapter
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDBVM
+import com.hi.dhl.pokemon.databinding.ActivityMainBinding
+import com.hi.dhl.pokemon.widgets.paging.FooterLoadStateAdapter
+import com.hi.dhl.pokemon.widgets.paging.PokemonAdapter
+import com.mozhimen.mvvmk.bases.activity.databinding.BaseActivityVDBVM
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
@@ -20,7 +21,7 @@ class MainActivity : BaseActivityVDBVM<ActivityMainBinding, MainViewModel>() {
     private val mPokemonAdapter by lazy { PokemonAdapter() }
 
     override fun initView(savedInstanceState: Bundle?) {
-        vdb.recyleView.adapter = mPokemonAdapter.withLoadStateFooter(FooterAdapter(mPokemonAdapter))
+        vdb.recyleView.adapter = mPokemonAdapter.withLoadStateFooter(FooterLoadStateAdapter(mPokemonAdapter))
 
         /**
          * 分为 数据库 和 网络搜索
@@ -31,17 +32,19 @@ class MainActivity : BaseActivityVDBVM<ActivityMainBinding, MainViewModel>() {
             vm.queryParameterForDb(result) // 搜索数据库
 //                mViewModel.queryParameterForNetWork(result) // 网络搜索
         }
+    }
 
-        vm.postOfData().observe(this, Observer {
-            mPokemonAdapter.submitData(lifecycle, it)
-            vdb.swiperRefresh.isEnabled = false
-        })
-
+    override fun initObserver() {
         lifecycleScope.launchWhenCreated {
             mPokemonAdapter.loadStateFlow.collectLatest { state ->
                 vdb.swiperRefresh.isRefreshing = state.refresh is LoadState.Loading
             }
         }
+
+        vm.postOfData().observe(this, Observer {
+            mPokemonAdapter.submitData(lifecycle, it)
+            vdb.swiperRefresh.isEnabled = false
+        })
 
         // 数据库搜索回调监听
         vm.searchResultForDb.observe(this, Observer {

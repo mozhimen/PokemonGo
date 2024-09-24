@@ -1,6 +1,5 @@
-package com.hi.dhl.pokemon.mos
+package com.hi.dhl.pokemon.widgets.paging.mos
 
-import androidx.recyclerview.widget.DiffUtil
 import kotlin.random.Random
 
 /**
@@ -35,23 +34,7 @@ data class PokemonInfoModel(
         return "PokemonInfoModel(name='$name', height=$height, weight=$weight, experience=$experience)"
     }
 
-    data class AlbumModel(val index: Int, val url: String) {
-        companion object {
-            val diffCallback = object : DiffUtil.ItemCallback<AlbumModel>() {
-                override fun areItemsTheSame(
-                    oldItem: AlbumModel,
-                    newItem: AlbumModel
-                ): Boolean =
-                    oldItem.index == newItem.index
-
-                override fun areContentsTheSame(
-                    oldItem: AlbumModel,
-                    newItem: AlbumModel
-                ): Boolean =
-                    oldItem == newItem
-            }
-        }
-    }
+    data class AlbumModel(val index: Int, val url: String)
 
     data class Type(val name: String, val url: String)
 

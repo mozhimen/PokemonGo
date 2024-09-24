@@ -9,8 +9,9 @@ import com.hi.dhl.pokemon.dbs.mos.PokemonEntity
 import com.hi.dhl.pokemon.dbs.mos.RemoteKeysEntity
 import com.hi.dhl.pokemon.dbs.AppDataBase
 import com.hi.dhl.pokemon.restfs.PokemonService
-import com.mozhimen.basick.lintk.optins.permission.OPermission_ACCESS_NETWORK_STATE
-import com.mozhimen.basick.utilk.wrapper.UtilKNet
+import com.mozhimen.kotlin.lintk.optins.permission.OPermission_ACCESS_NETWORK_STATE
+import com.mozhimen.kotlin.utilk.commons.IUtilK
+import com.mozhimen.kotlin.utilk.wrapper.UtilKNet
 import retrofit2.HttpException
 import timber.log.Timber
 import java.io.IOException
@@ -26,7 +27,7 @@ import java.io.IOException
 class PokemonRemoteMediator(
     val api: PokemonService,
     val db: AppDataBase
-) : RemoteMediator<Int, PokemonEntity>() {
+) : RemoteMediator<Int, PokemonEntity>(), IUtilK {
 
     @OptIn(OPermission_ACCESS_NETWORK_STATE::class)
     override suspend fun load(
@@ -122,7 +123,7 @@ class PokemonRemoteMediator(
             db.withTransaction {
                 if (loadType == LoadType.REFRESH) {
                     remoteKeysDao.clearRemoteKeys(remotePokemon)
-                    pokemonDao.clearPokemon(remotePokemon)
+                    pokemonDao.delete(remotePokemon)
                 }
                 val nextKey = if (endOfPaginationReached) null else page + 1
                 val entity = RemoteKeysEntity(
@@ -130,7 +131,7 @@ class PokemonRemoteMediator(
                     nextKey = nextKey
                 )
                 remoteKeysDao.insertAll(entity)
-                pokemonDao.insertPokemon(item)
+                pokemonDao.insert(item)
             }
 
             return MediatorResult.Success(endOfPaginationReached = endOfPaginationReached)
@@ -142,7 +143,6 @@ class PokemonRemoteMediator(
     }
 
     companion object {
-        private val TAG = "PokemonRemoteMediator"
         private val remotePokemon = "pokemon"
     }
 }

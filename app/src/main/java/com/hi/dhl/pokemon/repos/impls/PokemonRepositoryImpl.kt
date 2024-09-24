@@ -9,12 +9,12 @@ import com.hi.dhl.pokemon.dbs.mos.PokemonEntity
 import com.hi.dhl.pokemon.dbs.mos.PokemonInfoEntity
 import com.hi.dhl.pokemon.dbs.AppDataBase
 import com.hi.dhl.pokemon.repos.commons.Mapper
-import com.hi.dhl.pokemon.restfs.mos.PokemonResult
+import com.hi.dhl.pokemon.restfs.cons.PokemonResult
 import com.hi.dhl.pokemon.restfs.PokemonService
 import com.hi.dhl.pokemon.repos.helpers.PokemonRemoteMediator
 import com.hi.dhl.pokemon.repos.commons.Repository
-import com.hi.dhl.pokemon.mos.PokemonInfoModel
-import com.hi.dhl.pokemon.mos.PokemonItemModel
+import com.hi.dhl.pokemon.widgets.paging.mos.PokemonInfoModel
+import com.hi.dhl.pokemon.widgets.paging.mos.PokemonItemModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -43,8 +43,19 @@ class PokemonRepositoryImpl(
             config = pageConfig,
             remoteMediator = PokemonRemoteMediator(api, db)
         ) {
-            db.pokemonDao().getPokemon()
+            db.pokemonDao().get_ofPagingSource()
         }.flow.map { pagingData ->
+            pagingData.map { mapper2ItemMolde.map(it) }
+        }
+    }
+
+    override suspend fun fetchPokemonByParameter(parameter: String): Flow<PagingData<PokemonItemModel>> {
+        return Pager(pageConfig) {
+            // 加载数据库的数据
+            db.pokemonDao().get_ofPagingSource_nameLike(parameter)
+        }.flow.map { pagingData ->
+
+            // 数据映射，数据库实体 PersonEntity ——>  上层用到的实体 Person
             pagingData.map { mapper2ItemMolde.map(it) }
         }
     }
@@ -54,15 +65,15 @@ class PokemonRepositoryImpl(
             try {
                 val pokemonDao = db.pokemonInfoDao()
                 // 查询数据库是否存在，如果不存在请求网络
-                var infoModel = pokemonDao.getPokemon(name)
+                var infoModel = pokemonDao.get_ofName(name)
                 if (infoModel == null) {
                     // 网络请求
                     val netWorkPokemonInfo = api.fetchPokemonInfo(name)
 
                     // 将网路请求的数据，换转成的数据库的 model，之后插入数据库
-                    infoModel = PokemonInfoEntity.convert2PokemonInfoEntity(netWorkPokemonInfo)
+                    infoModel = netWorkPokemonInfo.convert2PokemonInfoEntity()
                     // 插入更新数据库
-                    pokemonDao.insertPokemon(infoModel)
+                    pokemonDao.insert(infoModel)
                 }
                 // 将数据源的 model 转换成上层用到的 model，
                 // ui 不能直接持有数据源，防止数据源的变化，影响上层的 ui
@@ -76,16 +87,7 @@ class PokemonRepositoryImpl(
         }.flowOn(Dispatchers.IO) // 通过 flowOn 切换到 io 线程
     }
 
-    override suspend fun fetchPokemonByParameter(parameter: String): Flow<PagingData<PokemonItemModel>> {
-        return Pager(pageConfig) {
-            // 加载数据库的数据
-            db.pokemonDao().pokemonInfoByParameter(parameter)
-        }.flow.map { pagingData ->
 
-            // 数据映射，数据库实体 PersonEntity ——>  上层用到的实体 Person
-            pagingData.map { mapper2ItemMolde.map(it) }
-        }
-    }
 
     companion object {
         private val TAG = "PokemonRepositoryImpl"
