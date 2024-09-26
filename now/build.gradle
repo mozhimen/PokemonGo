@@ -1,0 +1,67 @@
+import com.hi.dhl.plugin.BuildConfig
+
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
+}
+
+android {
+    namespace 'com.mozhimen.pokemongo.now'
+    compileSdk BuildConfig.compileSdk
+
+    defaultConfig {
+        applicationId "com.mozhimen.pokemongo.now"
+        minSdk 21
+        targetSdk BuildConfig.targetSdk
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        dataBinding = true
+    }
+}
+
+dependencies {
+    implementation project(':SwiftKit:basick')
+    implementation project(':SwiftKit:xmlk')
+    implementation project(':SwiftKit:mvvmk')
+
+    //pages
+    implementation project(':APagingKit:pagingk_paging3_data')
+
+    //nets
+    implementation project(':ANetKit:netk_retrofit2')
+    implementation project(':ALibKit_Squareup:retrofit2_converter_gson')
+
+    //dbs
+    implementation project(':ALibKit_Jetpack:room')
+    implementation project(':ALibKit_Jetpack:room_paging')
+    kapt 'androidx.room:room-compiler:2.6.1'
+
+    //dis
+    implementation project(':ALibKit_Google:dagger_hilt')
+    implementation 'com.google.dagger:hilt-android:2.50'
+    kapt 'com.google.dagger:hilt-compiler:2.50'
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}

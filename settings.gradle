@@ -60,3 +60,4 @@ include ':APagingKit:basic'
 include ':ANetKit'
 project(':ANetKit').projectDir = new File("D:\\WorkSpace\\GitHub\\ANetKit")
 include ':ANetKit:netk_retrofit2'
+include ':now'
