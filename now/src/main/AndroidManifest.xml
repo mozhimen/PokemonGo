@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application
         android:name=".PokemonGo_Application"
         android:icon="@mipmap/ic_launcher"
@@ -35,7 +36,7 @@
             android:exported="false">
 
             <meta-data
-                android:name="com.hi.dhl.pokemon.PokemonGo_Initializer"
+                android:name="com.mozhimen.pokemongo.now.PokemonGo_Initializer"
                 android:value="androidx.startup" />
         </provider>
     </application>
