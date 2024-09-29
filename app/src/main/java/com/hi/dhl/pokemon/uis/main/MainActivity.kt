@@ -8,7 +8,7 @@ import androidx.paging.LoadState
 import com.hi.dhl.pokemon.databinding.ActivityMainBinding
 import com.hi.dhl.pokemon.widgets.paging.FooterLoadStateAdapter
 import com.hi.dhl.pokemon.widgets.paging.PokemonAdapter
-import com.mozhimen.mvvmk.bases.activity.databinding.BaseActivityVDBVM
+import com.mozhimen.bindk.bases.activity.databinding.BaseActivityVDBVM
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview

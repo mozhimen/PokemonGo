@@ -1,4 +1,5 @@
 include ':app'
+include ':now'
 rootProject.name = "PokemonGo"
 
 //ALibKit_Google
@@ -27,7 +28,7 @@ include ':SwiftKit'
 project(':SwiftKit').projectDir = new File("D:\\WorkSpace\\GitHub\\SwiftKit")
 include ':SwiftKit:basick'
 include ':SwiftKit:xmlk'
-include ':SwiftKit:mvvmk'
+include ':SwiftKit:bindk'
 //ALogKit
 include ':ALogKit'
 project(':ALogKit').projectDir = new File("D:\\WorkSpace\\GitHub\\ALogKit")
@@ -61,4 +62,3 @@ include ':APagingKit:basic'
 include ':ANetKit'
 project(':ANetKit').projectDir = new File("D:\\WorkSpace\\GitHub\\ANetKit")
 include ':ANetKit:netk_retrofit2'
-include ':now'

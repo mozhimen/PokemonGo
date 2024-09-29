@@ -42,7 +42,7 @@ android {
 
 dependencies {
     implementation project(':SwiftKit:xmlk')
-    implementation project(':SwiftKit:mvvmk')
+    implementation project(':SwiftKit:bindk')
     implementation project(':ASerialKit:serialk_gson')
 
     //ui
