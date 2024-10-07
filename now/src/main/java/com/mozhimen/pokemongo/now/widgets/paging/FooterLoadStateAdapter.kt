@@ -7,10 +7,11 @@ import androidx.annotation.LayoutRes
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.mozhimen.bindk.utils.viewDataBinding
 import com.mozhimen.pokemongo.now.R
-import com.hi.dhl.jdatabinding.DataBindingViewHolder
 import com.mozhimen.kotlin.utilk.android.view.applyVisibleIfElseGone
 import com.mozhimen.pokemongo.now.databinding.RecycieItemNetworkStateBinding
+import com.mozhimen.xmlk.vhk.VHKRecycler
 
 /**
  * <pre>
@@ -38,10 +39,10 @@ class FooterLoadStateAdapter(val adapter: PokemonAdapter) : LoadStateAdapter<Foo
         return layoutInflater.inflate(viewType, viewGroup, false)
     }
 
-    class LoadStateViewHolder(view: View, private val retryCallback: () -> Unit) : DataBindingViewHolder<LoadState>(view) {
-        val mBinding: RecycieItemNetworkStateBinding by viewHolderBinding(view)
+    class LoadStateViewHolder(view: View, private val retryCallback: () -> Unit) : VHKRecycler(view) {
+        val mBinding: RecycieItemNetworkStateBinding by viewDataBinding(view)
 
-        override fun bindData(data: LoadState, position: Int) {
+        fun bindData(data: LoadState, position: Int) {
             mBinding.apply {
                 // 正在加载，显示进度条
                 progress.applyVisibleIfElseGone(data is LoadState.Loading)

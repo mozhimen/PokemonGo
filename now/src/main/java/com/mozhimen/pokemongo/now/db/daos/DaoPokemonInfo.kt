@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.mozhimen.pokemongo.now.db.mos.PokemonInfoEntity
+import com.mozhimen.pokemongo.now.db.mos.EntityPokemonInfo
 
 /**
  * <pre>
@@ -15,13 +15,13 @@ import com.mozhimen.pokemongo.now.db.mos.PokemonInfoEntity
  */
 
 @Dao
-interface PokemonInfoDao {
+interface DaoPokemonInfo {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(pokemonInfoEntity: PokemonInfoEntity)
+    suspend fun insert(entityPokemonInfo: EntityPokemonInfo)
 
-    @Query("SELECT * FROM PokemonInfoEntity where name = :name")
-    suspend fun get_ofName(name: String): PokemonInfoEntity?
+    @Query("SELECT * FROM EntityPokemonInfo where name = :name")
+    suspend fun get_ofName(name: String): EntityPokemonInfo?
 
-    @Query("DELETE FROM PokemonInfoEntity where id = :id")
+    @Query("DELETE FROM EntityPokemonInfo where id = :id")
     suspend fun delete(id: Int)
 }

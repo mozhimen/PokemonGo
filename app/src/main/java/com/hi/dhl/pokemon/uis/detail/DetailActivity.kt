@@ -6,11 +6,11 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
-import com.hi.dhl.jdatabinding.binding
 import com.hi.dhl.pokemon.R
 import com.hi.dhl.pokemon.cons.CParams
 import com.hi.dhl.pokemon.databinding.ActivityDetailsBinding
 import com.hi.dhl.pokemon.widgets.paging.mos.PokemonItemModel
+import com.mozhimen.bindk.utils.viewBinding
 import com.mozhimen.kotlin.utilk.android.content.startContext
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -29,7 +29,7 @@ import kotlinx.coroutines.FlowPreview
 @AndroidEntryPoint
 class DetailActivity : AppCompatActivity() {
 
-    private val mBindingActivity: ActivityDetailsBinding by binding()
+    private val mBindingActivity: ActivityDetailsBinding by viewBinding()
     private val mViewModel: DetailViewModel by viewModels()
     lateinit var mPokemonModel: PokemonItemModel
 

@@ -6,9 +6,9 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.map
 import coil.map.Mapper
-import com.mozhimen.pokemongo.now.db.AppDataBase
-import com.mozhimen.pokemongo.now.db.mos.PokemonEntity
-import com.mozhimen.pokemongo.now.db.mos.PokemonInfoEntity
+import com.mozhimen.pokemongo.now.db.DataBasePokemon
+import com.mozhimen.pokemongo.now.db.mos.EntityPokemon
+import com.mozhimen.pokemongo.now.db.mos.EntityPokemonInfo
 import com.mozhimen.pokemongo.now.repos.commons.Repository
 import com.mozhimen.pokemongo.now.repos.helpers.PokemonRemoteMediator
 import com.mozhimen.pokemongo.now.restful.PokemonService
@@ -31,10 +31,10 @@ import kotlinx.coroutines.flow.map
 
 class PokemonRepositoryImpl(
     val api: PokemonService,
-    val db: AppDataBase,
+    val db: DataBasePokemon,
     val pageConfig: PagingConfig,
-    val mapper2ItemMolde: Mapper<PokemonEntity, PokemonItemModel>,
-    val mapper2InfoModel: Mapper<PokemonInfoEntity, PokemonInfoModel>
+    val mapper2ItemMolde: Mapper<EntityPokemon, PokemonItemModel>,
+    val mapper2InfoModel: Mapper<EntityPokemonInfo, PokemonInfoModel>
 ) : Repository {
 
     @OptIn(ExperimentalPagingApi::class)

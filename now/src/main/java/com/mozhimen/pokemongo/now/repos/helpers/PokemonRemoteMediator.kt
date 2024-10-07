@@ -8,9 +8,9 @@ import androidx.room.withTransaction
 import com.mozhimen.kotlin.lintk.optins.permission.OPermission_ACCESS_NETWORK_STATE
 import com.mozhimen.kotlin.utilk.commons.IUtilK
 import com.mozhimen.kotlin.utilk.wrapper.UtilKNet
-import com.mozhimen.pokemongo.now.db.AppDataBase
-import com.mozhimen.pokemongo.now.db.mos.PokemonEntity
-import com.mozhimen.pokemongo.now.db.mos.RemoteKeysEntity
+import com.mozhimen.pokemongo.now.db.DataBasePokemon
+import com.mozhimen.pokemongo.now.db.mos.EntityPokemon
+import com.mozhimen.pokemongo.now.db.mos.EntityRemoteKeys
 import com.mozhimen.pokemongo.now.restful.PokemonService
 import retrofit2.HttpException
 import timber.log.Timber
@@ -26,13 +26,13 @@ import java.io.IOException
 @OptIn(ExperimentalPagingApi::class)
 class PokemonRemoteMediator(
     val api: PokemonService,
-    val db: AppDataBase
-) : RemoteMediator<Int, PokemonEntity>(), IUtilK {
+    val db: DataBasePokemon
+) : RemoteMediator<Int, EntityPokemon>(), IUtilK {
 
     @OptIn(OPermission_ACCESS_NETWORK_STATE::class)
     override suspend fun load(
         loadType: LoadType,
-        state: PagingState<Int, PokemonEntity>
+        state: PagingState<Int, EntityPokemon>
     ): MediatorResult {
         try {
 
@@ -111,7 +111,7 @@ class PokemonRemoteMediator(
             val endOfPaginationReached = result.isEmpty()
 
             val item = result.map {
-                PokemonEntity(
+                EntityPokemon(
                     name = it.name,
                     url = it.getImageUrl(),
                     remoteName = remotePokemon,
@@ -126,7 +126,7 @@ class PokemonRemoteMediator(
                     pokemonDao.delete(remotePokemon)
                 }
                 val nextKey = if (endOfPaginationReached) null else page + 1
-                val entity = RemoteKeysEntity(
+                val entity = EntityRemoteKeys(
                     remoteName = remotePokemon,
                     nextKey = nextKey
                 )

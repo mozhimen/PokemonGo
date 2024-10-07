@@ -43,6 +43,7 @@ project(':AXmlKit').projectDir = new File("D:\\WorkSpace\\GitHub\\AXmlKit")
 include ':AXmlKit:bark_app'
 include ':AXmlKit:vhk'
 include ':AXmlKit:viewk'
+include ':AXmlKit:recyclerk'
 //ASerialKit
 include ':ASerialKit'
 project(':ASerialKit').projectDir = new File("D:\\WorkSpace\\GitHub\\ASerialKit")

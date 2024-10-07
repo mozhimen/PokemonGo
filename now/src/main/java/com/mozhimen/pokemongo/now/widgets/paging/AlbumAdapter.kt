@@ -1,11 +1,14 @@
 package com.mozhimen.pokemongo.now.widgets.paging
 
-import android.view.View
-import com.hi.dhl.jdatabinding.DataBindingListAdapter
-import com.hi.dhl.jdatabinding.DataBindingViewHolder
+import android.content.Context
+import android.view.ViewGroup
+import androidx.annotation.LayoutRes
+import com.mozhimen.bindk.utils.viewDataBinding
 import com.mozhimen.pokemongo.now.databinding.RecycleItemAlbumBinding
 import com.mozhimen.pokemongo.now.widgets.paging.mos.PokemonInfoModel
 import com.mozhimen.pokemongo.now.R
+import com.mozhimen.xmlk.recyclerk.adapter.RecyclerKListAdapter
+import com.mozhimen.xmlk.vhk.VHKRecycler
 
 /**
  * <pre>
@@ -15,20 +18,25 @@ import com.mozhimen.pokemongo.now.R
  * </pre>
  */
 
-class AlbumAdapter : DataBindingListAdapter<PokemonInfoModel.AlbumModel>(DiffUtil_ItemCallback_AlbumModel()) {
-    override fun layout(position: Int): Int =
-        R.layout.recycle_item_album
+class AlbumAdapter : RecyclerKListAdapter<PokemonInfoModel.AlbumModel, AlbumAdapter.AlbumViewHolder>(DiffUtil_ItemCallback_AlbumModel()) {
 
-    override fun viewHolder(layout: Int, view: View): DataBindingViewHolder<PokemonInfoModel.AlbumModel> =
-        AlbumViewHolder(view)
+    override fun onCreateViewHolder(context: Context, parent: ViewGroup, viewType: Int): AlbumViewHolder {
+        return AlbumViewHolder(parent,R.layout.recycle_item_album)
+    }
+
+    override fun onBindViewHolder(holder: AlbumViewHolder, item: PokemonInfoModel.AlbumModel?, position: Int) {
+        super.onBindViewHolder(holder, item, position)
+        item?:return
+        holder.bindData(item,position)
+    }
 
     ///////////////////////////////////////////////////////////////////
 
-    class AlbumViewHolder(view: View) : DataBindingViewHolder<PokemonInfoModel.AlbumModel>(view) {
+    class AlbumViewHolder(parent: ViewGroup,@LayoutRes intResLayout:Int) : VHKRecycler(parent,intResLayout) {
 
-        private val mBinding: RecycleItemAlbumBinding by viewHolderBinding(view)
+        private val mBinding: RecycleItemAlbumBinding by viewDataBinding(itemView)
 
-        override fun bindData(data: PokemonInfoModel.AlbumModel, position: Int) {
+        fun bindData(data: PokemonInfoModel.AlbumModel, position: Int) {
             mBinding.apply {
                 album = data
                 executePendingBindings()

@@ -1,7 +1,7 @@
 package com.mozhimen.pokemongo.now.repos.impls
 
 import coil.map.Mapper
-import com.mozhimen.pokemongo.now.db.mos.PokemonEntity
+import com.mozhimen.pokemongo.now.db.mos.EntityPokemon
 import com.mozhimen.pokemongo.now.widgets.paging.mos.PokemonItemModel
 
 /**
@@ -11,9 +11,9 @@ import com.mozhimen.pokemongo.now.widgets.paging.mos.PokemonItemModel
  *     desc  :
  * </pre>
  */
-class Entity2ItemModelMapper : Mapper<PokemonEntity, PokemonItemModel> {
+class Entity2ItemModelMapper : Mapper<EntityPokemon, PokemonItemModel> {
 
-    override fun map(input: PokemonEntity): PokemonItemModel =
+    override fun map(input: EntityPokemon): PokemonItemModel =
         PokemonItemModel(name = input.name, url = input.url)
 
 }

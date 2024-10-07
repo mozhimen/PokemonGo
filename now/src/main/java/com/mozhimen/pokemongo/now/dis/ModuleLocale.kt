@@ -1,11 +1,10 @@
 package com.mozhimen.pokemongo.now.dis
 
-import android.app.Application
 import android.content.Context
-import com.mozhimen.pokemongo.now.db.AppDataBase
-import com.mozhimen.pokemongo.now.db.daos.PokemonDao
-import com.mozhimen.pokemongo.now.db.daos.PokemonInfoDao
-import com.mozhimen.pokemongo.now.db.daos.RemoteKeysDao
+import com.mozhimen.pokemongo.now.db.DataBasePokemon
+import com.mozhimen.pokemongo.now.db.daos.DaoPokemon
+import com.mozhimen.pokemongo.now.db.daos.DaoPokemonInfo
+import com.mozhimen.pokemongo.now.db.daos.DaoRemoteKeys
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -31,21 +30,21 @@ object ModuleLocale {
      */
     @Provides
     @Singleton
-    fun provideAppDataBase(@ApplicationContext context: Context): AppDataBase =
-        AppDataBase.getAppDataBase(context)
+    fun provideAppDataBase(@ApplicationContext context: Context): DataBasePokemon =
+        DataBasePokemon.getAppDataBase(context)
 
     @Provides
     @Singleton
-    fun providerPokemonDao(appDataBase: AppDataBase): PokemonDao =
-        appDataBase.pokemonDao()
+    fun providerPokemonDao(dataBasePokemon: DataBasePokemon): DaoPokemon =
+        dataBasePokemon.pokemonDao()
 
     @Provides
     @Singleton
-    fun providerPokemonInfoDao(appDataBase: AppDataBase): PokemonInfoDao =
-        appDataBase.pokemonInfoDao()
+    fun providerPokemonInfoDao(dataBasePokemon: DataBasePokemon): DaoPokemonInfo =
+        dataBasePokemon.pokemonInfoDao()
 
     @Provides
     @Singleton
-    fun providerRemoteKeysDao(appDataBase: AppDataBase): RemoteKeysDao =
-        appDataBase.remoteKeysDao()
+    fun providerRemoteKeysDao(dataBasePokemon: DataBasePokemon): DaoRemoteKeys =
+        dataBasePokemon.remoteKeysDao()
 }

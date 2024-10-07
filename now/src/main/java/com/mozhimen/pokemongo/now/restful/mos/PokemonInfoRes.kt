@@ -2,7 +2,7 @@ package com.mozhimen.pokemongo.now.restful.mos
 
 import com.google.gson.annotations.SerializedName
 import com.mozhimen.kotlin.utilk.kotlin.getEmptyOrDefault
-import com.mozhimen.pokemongo.now.db.mos.PokemonInfoEntity
+import com.mozhimen.pokemongo.now.db.mos.EntityPokemonInfo
 
 /**
  * <pre>
@@ -42,15 +42,15 @@ data class PokemonInfoRes(
 
     /////////////////////////////////////////////////////////////
 
-    fun convert2PokemonInfoEntity(): PokemonInfoEntity {
+    fun convert2PokemonInfoEntity(): EntityPokemonInfo {
         return this.run {
 
-            val dbTypes = mutableListOf<PokemonInfoEntity.Type>()
-            val dbStats = mutableListOf<PokemonInfoEntity.Stats>()
+            val dbTypes = mutableListOf<EntityPokemonInfo.Type>()
+            val dbStats = mutableListOf<EntityPokemonInfo.Stats>()
 
             types.forEach {
                 dbTypes.add(
-                    PokemonInfoEntity.Type(
+                    EntityPokemonInfo.Type(
                         name = it.type.name,
                         url = it.type.url
                     )
@@ -59,7 +59,7 @@ data class PokemonInfoRes(
 
             stats.forEach {
                 dbStats.add(
-                    PokemonInfoEntity.Stats(
+                    EntityPokemonInfo.Stats(
                         baseStat = it.baseStat,
                         name = it.stat.name,
                         url = it.stat.url
@@ -67,7 +67,7 @@ data class PokemonInfoRes(
                 )
             }
 
-            val dbSprites = PokemonInfoEntity.Sprites(
+            val dbSprites = EntityPokemonInfo.Sprites(
                 backDefault = sprites.backDefault.getEmptyOrDefault(),
                 backFemale = sprites.backFemale.getEmptyOrDefault(),
                 backShiny = sprites.backShiny.getEmptyOrDefault(),
@@ -78,7 +78,7 @@ data class PokemonInfoRes(
                 frontShinyFemale = sprites.frontShinyFemale.getEmptyOrDefault()
             )
 
-            PokemonInfoEntity(
+            EntityPokemonInfo(
                 name = name,
                 height = height,
                 weight = weight,

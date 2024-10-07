@@ -6,7 +6,8 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
-import com.hi.dhl.jdatabinding.binding
+import com.mozhimen.bindk.utils.viewBinding
+import com.mozhimen.bindk.utils.viewDataBinding
 import com.mozhimen.kotlin.utilk.android.content.startContext
 import com.mozhimen.pokemongo.now.R
 import com.mozhimen.pokemongo.now.databinding.ActivityDetailsBinding
@@ -28,7 +29,8 @@ import kotlinx.coroutines.FlowPreview
 @AndroidEntryPoint
 class DetailActivity : AppCompatActivity() {
 
-    private val mBindingActivity: ActivityDetailsBinding by binding()
+    private val mBindingActivity: ActivityDetailsBinding by viewDataBinding()
+
     private val mViewModel: DetailViewModel by viewModels()
     lateinit var mPokemonModel: PokemonItemModel
 
@@ -50,9 +52,9 @@ class DetailActivity : AppCompatActivity() {
          */
         supportFragmentManager.fragmentFactory = CustomFragmentFactory()
         super.onCreate(savedInstanceState)
-
+        setContentView(mBindingActivity.root)
         mBindingActivity.apply {
-            mPokemonModel = requireNotNull(intent.getParcelableExtra(DetailActivity.KEY_LIST_MODEL)) { "params is not null" }
+            mPokemonModel = requireNotNull(intent.getParcelableExtra(KEY_LIST_MODEL)) { "params is not null" }
 
             DetailFragment.addFragment(
                 supportFragmentManager,

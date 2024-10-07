@@ -5,11 +5,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.paging.PagingDataAdapter
-import com.hi.dhl.jdatabinding.DataBindingViewHolder
-import com.hi.dhl.jdatabinding.dowithTry
+import com.mozhimen.bindk.utils.viewDataBinding
 import com.mozhimen.pokemongo.now.databinding.RecycleItemPokemonBinding
 import com.mozhimen.pokemongo.now.widgets.paging.mos.PokemonItemModel
 import com.mozhimen.pokemongo.now.R
+import com.mozhimen.xmlk.vhk.VHKRecycler
+
 /**
  * <pre>
  *     author: dhl
@@ -21,12 +22,10 @@ import com.mozhimen.pokemongo.now.R
 class PokemonAdapter : PagingDataAdapter<PokemonItemModel, PokemonAdapter.PokemonViewHolder>(DiffUtil_ItemCallback_PokemonItemModel()) {
 
     override fun onBindViewHolder(holder: PokemonViewHolder, position: Int) {
-        dowithTry {
             val data = getItem(position)
             data?.let {
                 holder.bindData(data, position)
             }
-        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonViewHolder {
@@ -41,10 +40,10 @@ class PokemonAdapter : PagingDataAdapter<PokemonItemModel, PokemonAdapter.Pokemo
 
     ///////////////////////////////////////////////////////////////////
 
-    class PokemonViewHolder(view: View) : DataBindingViewHolder<PokemonItemModel>(view) {
-        private val mBinding: RecycleItemPokemonBinding by viewHolderBinding(view)
+    class PokemonViewHolder(view: View) : VHKRecycler(view) {
+        private val mBinding: RecycleItemPokemonBinding by viewDataBinding(view)
 
-        override fun bindData(data: PokemonItemModel, position: Int) {
+        fun bindData(data: PokemonItemModel, position: Int) {
             mBinding.apply {
                 data.id = "#${position + 1}"
                 pokemon = data

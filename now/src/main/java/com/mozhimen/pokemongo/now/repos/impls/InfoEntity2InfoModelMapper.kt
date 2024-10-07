@@ -1,7 +1,7 @@
 package com.mozhimen.pokemongo.now.repos.impls
 
 import coil.map.Mapper
-import com.mozhimen.pokemongo.now.db.mos.PokemonInfoEntity
+import com.mozhimen.pokemongo.now.db.mos.EntityPokemonInfo
 import com.mozhimen.pokemongo.now.widgets.paging.mos.PokemonInfoModel
 
 
@@ -12,14 +12,14 @@ import com.mozhimen.pokemongo.now.widgets.paging.mos.PokemonInfoModel
  *     desc  :
  * </pre>
  */
-class InfoEntity2InfoModelMapper : Mapper<PokemonInfoEntity, PokemonInfoModel> {
+class InfoEntity2InfoModelMapper : Mapper<EntityPokemonInfo, PokemonInfoModel> {
 
-    override fun map(input: PokemonInfoEntity): PokemonInfoModel {
+    override fun map(input: EntityPokemonInfo): PokemonInfoModel {
 
         return convert2PokemonInfoEntity(input)
     }
 
-    fun convert2PokemonInfoEntity(pokemonInfoModel: PokemonInfoEntity): PokemonInfoModel {
+    fun convert2PokemonInfoEntity(pokemonInfoModel: EntityPokemonInfo): PokemonInfoModel {
         return pokemonInfoModel.run {
 
             val dbTypes = mutableListOf<PokemonInfoModel.Type>()

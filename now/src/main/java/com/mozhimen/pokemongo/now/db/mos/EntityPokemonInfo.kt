@@ -13,7 +13,7 @@ import androidx.room.PrimaryKey
  */
 
 @Entity
-data class PokemonInfoEntity(
+data class EntityPokemonInfo(
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0,
     val name: String,

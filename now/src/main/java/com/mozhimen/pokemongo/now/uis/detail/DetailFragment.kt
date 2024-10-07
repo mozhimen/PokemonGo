@@ -1,14 +1,18 @@
 package com.mozhimen.pokemongo.now.uis.detail
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.commit
 import androidx.lifecycle.Observer
-import com.hi.dhl.jdatabinding.DataBindingFragment
+import com.mozhimen.bindk.utils.viewBinding
+import com.mozhimen.bindk.utils.viewDataBinding
 import com.mozhimen.pokemongo.now.R
 import com.mozhimen.pokemongo.now.databinding.FragmentDetailsBinding
 import com.mozhimen.pokemongo.now.widgets.paging.AlbumAdapter
@@ -29,13 +33,16 @@ import kotlinx.coroutines.FlowPreview
 @FlowPreview
 @ExperimentalCoroutinesApi
 @AndroidEntryPoint
-class DetailFragment(args: String) : DataBindingFragment(R.layout.fragment_details) {
+class DetailFragment(args: String) : Fragment(R.layout.fragment_details) {
 
-    private val mBinding: FragmentDetailsBinding by binding()
+    private val mBinding: FragmentDetailsBinding by viewDataBinding()
     private val mViewModel: DetailViewModel by activityViewModels()
     private lateinit var mPokemonModel: PokemonItemModel
     val mAlbumAdapter: AlbumAdapter by lazy { AlbumAdapter() }
 
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return mBinding.root
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

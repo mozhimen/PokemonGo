@@ -1,7 +1,7 @@
 package com.mozhimen.pokemongo.now.dis
 
 import androidx.paging.PagingConfig
-import com.mozhimen.pokemongo.now.db.AppDataBase
+import com.mozhimen.pokemongo.now.db.DataBasePokemon
 import com.mozhimen.pokemongo.now.repos.commons.Repository
 import com.mozhimen.pokemongo.now.repos.impls.Entity2ItemModelMapper
 import com.mozhimen.pokemongo.now.repos.impls.InfoEntity2InfoModelMapper
@@ -49,7 +49,7 @@ object ModuleRepository {
 
     @Singleton
     @Provides
-    fun provideTasksRepository(api: PokemonService, db: AppDataBase, pagingConfig: PagingConfig): Repository =
+    fun provideTasksRepository(api: PokemonService, db: DataBasePokemon, pagingConfig: PagingConfig): Repository =
         PokemonRepositoryImpl(
             api,
             db,

@@ -12,7 +12,7 @@ import androidx.room.PrimaryKey
  */
 
 @Entity
-data class PokemonEntity(
+data class EntityPokemon(
     @PrimaryKey
     val name: String,
     var pokemonId: Int = 0,

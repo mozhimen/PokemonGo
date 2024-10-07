@@ -5,7 +5,7 @@ import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
-import com.mozhimen.mvvmk.bases.activity.databinding.BaseActivityVDBVM
+import com.mozhimen.bindk.bases.viewdatabinding.activity.BaseActivityVDBVM
 import com.mozhimen.pokemongo.now.databinding.ActivityMainBinding
 import com.mozhimen.pokemongo.now.widgets.paging.FooterLoadStateAdapter
 import com.mozhimen.pokemongo.now.widgets.paging.PokemonAdapter

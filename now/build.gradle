@@ -48,6 +48,8 @@ dependencies {
     //ui
     implementation project(':AXmlKit:bark_app')
     implementation project(':AXmlKit:viewk')
+    implementation project(':AXmlKit:vhk')
+    implementation project(':AXmlKit:recyclerk')
     implementation project(':AImageKit:imagek_coil1')
 
     //pages

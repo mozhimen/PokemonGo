@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.mozhimen.pokemongo.now.db.mos.RemoteKeysEntity
+import com.mozhimen.pokemongo.now.db.mos.EntityRemoteKeys
 
 /**
  * <pre>
@@ -15,13 +15,13 @@ import com.mozhimen.pokemongo.now.db.mos.RemoteKeysEntity
  */
 
 @Dao
-interface RemoteKeysDao {
+interface DaoRemoteKeys {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(remoteKeyEntity: RemoteKeysEntity)
+    suspend fun insertAll(remoteKeyEntity: EntityRemoteKeys)
 
-    @Query("SELECT * FROM RemoteKeysEntity where remoteName = :name ")
-    suspend fun getRemoteKeys(name: String): RemoteKeysEntity?
+    @Query("SELECT * FROM EntityRemoteKeys where remoteName = :name ")
+    suspend fun getRemoteKeys(name: String): EntityRemoteKeys?
 
-    @Query("DELETE FROM RemoteKeysEntity where remoteName = :name")
+    @Query("DELETE FROM EntityRemoteKeys where remoteName = :name")
     suspend fun clearRemoteKeys(name: String)
 }
