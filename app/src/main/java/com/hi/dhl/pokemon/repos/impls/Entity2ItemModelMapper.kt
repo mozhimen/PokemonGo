@@ -5,7 +5,7 @@ import com.hi.dhl.pokemon.dbs.mos.PokemonEntity
 import com.hi.dhl.pokemon.widgets.paging.mos.PokemonItemModel
 
 /**
- * <pre>
+ * <pre>M
  *     author: dhl
  *     date  : 2020/7/11
  *     desc  :
